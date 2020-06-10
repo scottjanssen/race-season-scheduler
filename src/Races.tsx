@@ -1,5 +1,5 @@
 import { MenuItem } from '@blueprintjs/core'
-import { ItemPredicate, ItemRenderer } from '@blueprintjs/select'
+import { ItemRenderer } from '@blueprintjs/select'
 import React from 'react'
 
 export interface ITrack {
@@ -54,3 +54,17 @@ export const Races: ITrack[] = [
   { track: 'Suzuka Circuit', country: 'Japan' },
   { track: 'Yas Marina Circuit', country: 'United Arab Emirates' },
 ]
+
+export const renderTrack: ItemRenderer<ITrack> = (
+  race,
+  { handleClick, index }
+) => {
+  return (
+    <MenuItem
+      label={race.country}
+      key={index}
+      onClick={handleClick}
+      text={race.track}
+    />
+  )
+}

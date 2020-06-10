@@ -4,13 +4,13 @@ import styled from 'styled-components'
 const HeaderDiv = styled.div`
   height: 30%;
   width: 100%;
-  background-color: black;
+  background-color: #e10600;
   display: flex;
   justify-content: center;
 `
 
 const Title = styled.h2`
-  color: #d4af37;
+  color: white;
   text-align: center;
 `
 
