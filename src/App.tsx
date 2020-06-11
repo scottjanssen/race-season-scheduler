@@ -1,12 +1,12 @@
 import React from 'react'
 import { Header } from './Header'
-import { Race } from './Race'
+import { RaceList } from './RaceList'
 
 function App() {
   return (
     <React.Fragment>
       <Header />
-      <Race />
+      <RaceList />
     </React.Fragment>
   )
 }
