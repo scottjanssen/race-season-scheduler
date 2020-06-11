@@ -14,9 +14,22 @@ const RaceCardDiv = styled.div`
   justify-content: center;
 `
 
+const ButtonDiv = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
 const RaceSelect = styled(Select.ofType<Races.ITrack>())`
   display: flex;
   justify-content: center;
+`
+
+const AddButton = styled(Button)`
+  display: inline-block;
+`
+
+const DeleteButton = styled(Button)`
+  display: inline-block;
 `
 
 export default class Race extends React.Component {
@@ -71,21 +84,43 @@ export class RaceList extends React.Component {
     })
   }
 
+  OnDeleteRace = () => {
+    this.state.listItems.pop()
+    this.setState({
+      listItems: this.state.listItems,
+    })
+  }
+
   render() {
-    const raceItems = this.state.listItems.map((race) => <li>{race}</li>)
+    const raceItems = this.state.listItems.map((race) => <div>{race}</div>)
 
     return (
       <React.Fragment>
-        <ol>{raceItems}</ol>
-        <Button
-          text={'Add another race'}
-          fill
-          onClick={this.OnAddRace}
-          style={{
-            backgroundColor: 'black',
-            color: 'white',
-          }}
-        />
+        {raceItems}
+        <ButtonDiv>
+          <AddButton
+            text={'Add'}
+            onClick={this.OnAddRace}
+            style={{
+              backgroundColor: 'green',
+              color: 'black',
+              width: '25%',
+              textAlign: 'center',
+            }}
+          />
+          <DeleteButton
+            text={'Delete'}
+            onClick={
+              this.state.listItems.length > 0 ? this.OnDeleteRace : undefined
+            }
+            style={{
+              backgroundColor: 'red',
+              color: 'black',
+              width: '25%',
+              textAlign: 'center',
+            }}
+          />
+        </ButtonDiv>
       </React.Fragment>
     )
   }
