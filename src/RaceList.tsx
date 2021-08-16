@@ -91,7 +91,7 @@ export class RaceList extends React.Component {
     })
   }
 
-  render() {
+    render() {
     const raceItems = this.state.listItems.map((race) => <div>{race}</div>)
 
     return (
